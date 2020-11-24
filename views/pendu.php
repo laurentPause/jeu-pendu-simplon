@@ -12,6 +12,7 @@
 <body>
     <div class="container">
         <h1 class="text-center">Jeu du pendu simplon</h1>
+        <!-- Buttons letter -->
         <div id="pendu-lettre">
             <div class="text-center mb-1">
                 <button type="button" class="btn btn-outline-primary pendu-btn">A</button>
@@ -46,10 +47,13 @@
                 <button type="button" class="btn btn-outline-primary pendu-btn">Z</button>
             </div>
         </div>
+        <!-- Img pendu en background -->
         <div id="pendu-img" class="text-center" >
 
         </div>
+        <!-- Affichage des lettre du mot si trouvé -->
         <div id="pendu-mot" class="text-center">
+            <!-- Créer des span en fonction du nombre de lettres dans le mot -->
             <?php $length_mot = $_SESSION['length-mot'];
             for ($index = 0; $index < $length_mot; $index++) :
             ?>
@@ -61,21 +65,15 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="penduModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="penduModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
                 <div class="modal-body">
-                    ...
+                    <h2 id="penduModalTitle"></h2>
+                    <p id="penduModalContent"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button id="penduModalBtn" type="button" class="btn btn-primary">Nouvelle partie</button>
                 </div>
             </div>
         </div>

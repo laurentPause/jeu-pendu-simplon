@@ -4,7 +4,9 @@ class Pendu
 {
 
     protected $mot;
-
+    /**
+     * 
+     */
     private function get_mot()
     {
         $dictionary_string = file_get_contents(dirname(__FILE__) . '/../data/dictionary.json');
@@ -65,16 +67,28 @@ class Pendu
 
         if($erreur >= 9){
             $limite = true;
+            $results = array(
+                "asLetter" => $asLetter,
+                "posLetter" => $posLetter,
+                "erreur" => $erreur,
+                "trouver" => $trouver,
+                "limite" => $limite,
+                "mot" => $mot
+            );
+            return json_encode($results);
+
+        }else{
+            $results = array(
+                "asLetter" => $asLetter,
+                "posLetter" => $posLetter,
+                "erreur" => $erreur,
+                "trouver" => $trouver,
+                "limite" => $limite,
+            );
+            return json_encode($results);
         }
 
-        $results = array(
-            "asLetter" => $asLetter,
-            "posLetter" => $posLetter,
-            "erreur" => $erreur,
-            "trouver" => $trouver,
-            "limite" => $limite,
-        );
+        
 
-        return json_encode($results);
     }
 }
